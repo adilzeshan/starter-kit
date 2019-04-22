@@ -1,15 +1,15 @@
-const merge = require("webpack-merge");
-const common = require("./webpack.common.js");
-const TerserPlugin = require("terser-webpack-plugin");
-const ImageminPlugin = require("imagemin-webpack-plugin").default;
-const imageminMozjpeg = require("imagemin-mozjpeg");
-const CompressionPlugin = require("compression-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const OfflinePlugin = require("offline-plugin");
+const merge = require('webpack-merge');
+const common = require('./webpack.common.js');
+const TerserPlugin = require('terser-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const imageminMozjpeg = require('imagemin-mozjpeg');
+const CompressionPlugin = require('compression-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 module.exports = merge(common, {
-  mode: "production",
-  devtool: "source-map",
+  mode: 'production',
+  devtool: 'source-map',
   optimization: {
     minimizer: [
       new TerserPlugin({
@@ -29,16 +29,16 @@ module.exports = merge(common, {
         optimizationLevel: 9
       },
       pngquant: {
-        quality: "75"
+        quality: '75'
       },
       plugins: [
         imageminMozjpeg({
-          quality: "75"
+          quality: '75'
         })
       ]
     }),
     new FaviconsWebpackPlugin({
-      logo: "./src/images/icon.svg",
+      logo: './src/images/icon.svg',
       icons: {
         twitter: true,
         windows: true
