@@ -12,9 +12,10 @@
     "test:update": "jest --silent -u",
     "test:watch": "jest --silent --watch",
     "test:coverage": "jest --silent --coverage",
-    "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
-    "format:check": "prettier --list-different \"src/**/*.{js,jsx,json,css}\"",
-    "lint": "eslint --fix --quiet \"src/**/*.{js,jsx}\""
+    "lint": "eslint --fix --quiet \"src/**/*.{js,jsx}\"",
+    "prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx|graphql|vue)\"",
+    "format": "npm run prettier -- --write",
+    "validate": "npm run lint && npm run prettier -- --list-different"
   },
   "repository": {
     "type": "git",
